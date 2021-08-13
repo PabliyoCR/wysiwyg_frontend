@@ -6,7 +6,7 @@
         p(v-show="!show" v-html="editor" @dblclick="showEditor(true)")
         
         button(v-show="false" v-shortkey="['ctrl', 's']" @shortkey="saveEditorWithoutExit")
-        button(v-show="false" v-shortkey="['alt', 's']" @shortkey="saveEditorWithoutExit")
+        button(v-show="false" v-shortkey="['meta', 's']" @shortkey="saveEditorWithoutExit")
 
         button(v-show="false" v-shortkey="['tab']" @shortkey="indent(true)")
         button(v-show="false" v-shortkey="['tab', 'shift']" @shortkey="indent(false)")
