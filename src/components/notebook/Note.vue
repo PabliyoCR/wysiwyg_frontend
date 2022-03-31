@@ -43,6 +43,7 @@ import "prismjs/components/prism-c";
 import "prismjs/components/prism-python";
 import "prismjs/components/prism-r";
 import "prismjs/components/prism-css";
+import "prismjs/components/prism-applescript";
 
 import axios from "axios";
 
@@ -101,6 +102,11 @@ export default {
           label: "SQL",
           handler: this.preCodeSQL
         },
+        preCodeAppleScript: {
+          tip: "Edit Code SQL",
+          label: "AS",
+          handler: this.preCodeAppleScript
+        },
         preCodeC: {
           tip: "Edit Code C",
           label: "C",
@@ -138,6 +144,7 @@ export default {
           "preCodePython",
           "preCodeR",
           "preCodeSQL",
+          "preCodeAppleScript",
           "viewCode"
         ]
       ],
@@ -393,6 +400,17 @@ export default {
       this.$refs.editor_note_ref.runCmd(
         "insertHTML",
         `<pre><code class="language-plsql">${text.replace(
+          /</g,
+          "&lt;"
+        )}</code></pre>`
+      );
+      this.higthlightCode();
+    },
+    preCodeAppleScript() {
+      var text = this.getSelectedText();
+      this.$refs.editor_note_ref.runCmd(
+        "insertHTML",
+        `<pre><code class="language-applescript">${text.replace(
           /</g,
           "&lt;"
         )}</code></pre>`
